@@ -27,6 +27,80 @@ pnpm preview
 
 开发模式默认端口：`http://localhost:5173`
 
+## 部署子路径（base 配置）
+
+默认 `base = /`（根路径），即部署到 `https://smartool.top/`。
+通过环境变量 `BASE` 覆盖（**必须以 `/` 开头并以 `/` 结尾**）：
+
+| 场景 | `BASE` 值 | 最终访问地址 |
+|---|---|---|
+| 根域名部署（默认） | `/` 或不设置 | `https://smartool.top/` |
+| 子路径 `/cloudarcade/` | `/cloudarcade/` | `https://smartool.top/cloudarcade/` |
+| 其他子路径 | `/docs/` | `https://smartool.top/docs/` |
+
+### 各操作系统设置环境变量
+
+**Windows - PowerShell**（推荐）：
+
+```powershell
+$env:BASE = "/cloudarcade/"
+pnpm build
+```
+
+**Windows - CMD**：
+
+```cmd
+set BASE=/cloudarcade/
+pnpm build
+```
+
+**Windows - Git Bash**：
+
+```bash
+BASE=/cloudarcade/ pnpm build
+```
+
+**Linux / macOS / WSL**（Bash / Zsh）：
+
+```bash
+BASE=/cloudarcade/ pnpm build
+```
+
+也可 `export` 后多次使用：
+
+```bash
+export BASE=/cloudarcade/
+pnpm build
+pnpm preview
+```
+
+**CI / Docker**：
+
+```yaml
+# GitHub Actions
+env:
+  BASE: /cloudarcade/
+run: pnpm build
+```
+
+```dockerfile
+# Dockerfile
+ENV BASE=/cloudarcade/
+RUN pnpm build
+```
+
+```yaml
+# docker-compose.yml
+environment:
+  - BASE=/cloudarcade/
+```
+
+### 注意事项
+
+- 本地 `pnpm dev` 同样应用 `base`，访问地址变为 `http://localhost:5173/cloudarcade/`
+- `cleanUrls: true` 在子路径下仍然有效
+- 若部署平台（Cloudflare Pages、Vercel、Netlify）自身有 base 配置项，请保持与环境变量 `BASE` 一致，避免资源 404
+
 ## 文档目录
 
 ```

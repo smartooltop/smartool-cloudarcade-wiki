@@ -1,10 +1,16 @@
 import {defineConfig} from 'vitepress'
 import {glossaryPlugin} from './plugins/glossary'
 
+// 部署子路径,通过环境变量 BASE 配置,默认根路径 /
+// 部署到子路径时设置 BASE=/cloudarcade/ ;根域名部署时留空或设为 /
+// 注意:必须以 / 开头、以 / 结尾
+const base = process.env.BASE || '/'
+
 export default defineConfig({
     lang: 'zh-CN',
     title: 'CloudArcade Wiki',
     description: 'CloudArcade 云游戏站 CMS 源码解析文档',
+    base,
     cleanUrls: true,
     lastUpdated: true,
 
