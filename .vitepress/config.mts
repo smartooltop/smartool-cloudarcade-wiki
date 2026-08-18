@@ -28,6 +28,7 @@ export default defineConfig({
     themeConfig: {
         logo: '/cloudarcade-logo.svg',
         nav: [
+            {text: '主站', link: 'https://smartool.top/'},
             {text: '指南', link: '/guide/introduction'},
             {text: '架构', link: '/architecture/request-lifecycle'},
             {text: '核心类', link: '/classes/game'},
