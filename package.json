@@ -1,0 +1,21 @@
+{
+  "name": "smartool-cloudarcade-wiki",
+  "version": "1.0.0",
+  "description": "CloudArcade 源码解析 Wiki",
+  "type": "module",
+  "scripts": {
+    "dev": "vitepress dev .",
+    "build": "vitepress build .",
+    "preview": "vitepress preview ."
+  },
+  "keywords": [
+    "cloudarcade",
+    "wiki",
+    "vitepress"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "vitepress": "^1.6.4"
+  }
+}

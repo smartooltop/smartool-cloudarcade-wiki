@@ -1,0 +1,8 @@
+node_modules/
+.vitepress/dist/
+.vitepress/cache/
+*.log
+.DS_Store
+.idea/
+.codeartsdoer/
+.merkle-snapshot.json

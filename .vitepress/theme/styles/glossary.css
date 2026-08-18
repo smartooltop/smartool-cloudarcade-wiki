@@ -1,0 +1,91 @@
+/* ===== 词条高亮样式 ===== */
+
+.glossary-term {
+  border-bottom: 1px dashed var(--vp-c-brand-1);
+  cursor: help;
+  transition: background-color 0.15s ease;
+}
+
+.glossary-term:hover {
+  background-color: var(--vp-c-brand-soft);
+}
+
+/* ===== 悬停气泡样式 ===== */
+
+.glossary-tooltip-root {
+  /* 仅作包裹容器，无样式 */
+}
+
+.glossary-tooltip {
+  position: fixed;
+  z-index: 9999;
+  max-width: 340px;
+  min-width: 200px;
+  padding: 12px 14px;
+  border-radius: 8px;
+  border: 1px solid var(--vp-c-divider);
+  background-color: var(--vp-c-bg-soft);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.12);
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--vp-c-text-1);
+  pointer-events: auto;
+}
+
+.glossary-tooltip-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.glossary-tooltip-term {
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--vp-c-brand-1);
+}
+
+.glossary-tooltip-type {
+  font-size: 11px;
+  line-height: 1;
+  padding: 2px 6px;
+  border-radius: 10px;
+  background-color: var(--vp-c-badge-tip-bg, rgba(16, 185, 129, 0.15));
+  color: var(--vp-c-badge-tip-text, #10b981);
+  border: 1px solid var(--vp-c-badge-tip-border, rgba(16, 185, 129, 0.35));
+}
+
+.glossary-tooltip-ipa {
+  font-family: var(--vp-font-family-mono, ui-monospace, 'SFMono-Regular', Consolas, monospace);
+  font-size: 13px;
+  color: var(--vp-c-text-2);
+  padding: 2px 8px;
+  background-color: var(--vp-c-bg);
+  border-radius: 4px;
+  display: inline-block;
+  margin-bottom: 6px;
+}
+
+.glossary-tooltip-zh {
+  color: var(--vp-c-text-1);
+  font-size: 13px;
+}
+
+/* 过渡动画 */
+.glossary-tip-enter-active,
+.glossary-tip-leave-active {
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+.glossary-tip-enter-from,
+.glossary-tip-leave-to {
+  opacity: 0;
+  transform: translateY(4px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .glossary-tip-enter-active,
+  .glossary-tip-leave-active {
+    transition: none;
+  }
+}
